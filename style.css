@@ -1,0 +1,75 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin: 0px;
+  background-color: rgb(74, 10, 88);
+}
+
+.content1 {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+}
+
+.container {
+  align-self: center;
+  height: fit-content;
+  width: 300px;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: rgb(146, 103, 156);
+}
+
+.screen {
+  width: auto;
+  height: 80px;
+  margin: 8px 8px 3px 8px;
+  background-color: rgb(198, 231, 223);
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.button-row1,
+.button-row2,
+.button-row3,
+.button-row4,
+.button-row5 {
+  display: flex;
+}
+
+button {
+  flex: 1;
+  height: 65px;
+  margin: 3px;
+  border-radius: 5px;
+  background-color: rgb(198, 168, 205);
+}
+
+.btn-left {
+  margin-left: 8px;
+}
+
+.btn-right {
+  margin-right: 8px;
+}
+
+.btn-right-large {
+  margin-right: 8px;
+  margin-bottom: 8px;
+  flex: 2.42;
+}
+
+.light {
+  background-color: rgb(135, 233, 131);
+}
+
+.light2 {
+  background-color: rgb(201, 233, 131);
+}
+
+.dark {
+  background-color: rgb(233, 187, 131);
+}
