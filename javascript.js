@@ -1,10 +1,13 @@
 let firstNumber = "";
-let operator = ""
+let operator = "";
 let secondNumber = "";
+let result = "";
 
 function add() {
-  const result = firstNumber + secondNumber;
-  return Math.round((result + Number.EPSILON) * 100) / 100;
+  const resultAdd = Number(firstNumber) + Number(secondNumber);
+  const resultRound = Math.round((resultAdd + Number.EPSILON) * 100) / 100;
+  result = resultRound
+  console.log(result)
 }
 
 function subtract() {
@@ -22,10 +25,7 @@ function devide() {
   return Math.round((result + Number.EPSILON) * 100) / 100;
 }
 
-console.log(add());
-console.log(subtract());
-console.log(multiply());
-console.log(devide());
+
 
 function buttons() {
   const button0 = document.getElementById('0');
@@ -39,6 +39,8 @@ function buttons() {
   const button8 = document.getElementById('8');
   const button9 = document.getElementById('9');
   const buttonAdd = document.getElementById('add');
+  const buttonOperate = document.getElementById('operate');
+
 
 
   button0.addEventListener('click', runButton0);
@@ -52,6 +54,8 @@ function buttons() {
   button8.addEventListener('click', runButton8);
   button9.addEventListener('click', runButton9);
   buttonAdd.addEventListener('click', runButtonAdd);
+  buttonOperate.addEventListener('click', runButtonOperate);
+
 
 
 }
@@ -113,8 +117,15 @@ function runButton9() {
 }
 
 function runButtonAdd() {
-  operator = "+"
-  updateScreen2()
+  operator = "+";
+  updateScreen2();
+}
+
+function runButtonOperate() {
+  if (operator == "+") {
+    add();
+    updateScreenResult();
+  }
 }
 
 
@@ -152,3 +163,18 @@ function updateScreen3() {
   console.log(secondNumber)
 }
 
+function updateScreenResult() {
+  const screenTop = document.getElementById('screen-top');
+  const topText = document.getElementById('top-text');
+  topText.textContent = `${firstNumber}` + ` ${operator}` + ` ${secondNumber}`;
+  screenTop.appendChild(topText);
+
+  const screenBottom = document.getElementById('screen-bottom');
+  const bottomText = document.getElementById('bottom-text');
+  bottomText.textContent = result;
+  screenBottom.appendChild(bottomText);
+
+  console.log(firstNumber)
+  console.log(operator)
+  console.log(secondNumber)
+}
