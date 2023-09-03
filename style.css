@@ -27,9 +27,20 @@ body {
   width: auto;
   height: 80px;
   margin: 8px 8px 3px 8px;
-  background-color: rgb(198, 231, 223);
+  background-color: rgb(235, 198, 196);
   border: 1px solid black;
-  border-radius: 5px;
+  border-radius: 5px;}
+
+#top-text {
+  text-align: end;
+  font-size: 16px;
+  margin: 13px;
+}
+
+#bottom-text {
+  text-align: end;
+  font-size: 20px;
+  margin: 13px;
 }
 
 .button-row1,
