@@ -6,23 +6,25 @@ let result = "";
 function add() {
   const resultAdd = Number(firstNumber) + Number(secondNumber);
   const resultRound = Math.round((resultAdd + Number.EPSILON) * 100) / 100;
-  result = resultRound
-  console.log(result)
+  result = resultRound;
 }
 
 function subtract() {
-  const result = firstNumber - secondNumber;
-  return Math.round((result + Number.EPSILON) * 100) / 100;
+  const resultSubtract = Number(firstNumber) - Number(secondNumber);
+  const resultRound = Math.round((resultSubtract + Number.EPSILON) * 100) / 100;
+  result = resultRound;
 }
 
 function multiply() {
-  const result = firstNumber * secondNumber;
-  return Math.round((result + Number.EPSILON) * 100) / 100;
+  const resultMultiply = Number(firstNumber) * Number(secondNumber);
+  const resultRound = Math.round((resultMultiply + Number.EPSILON) * 100) / 100;
+  result = resultRound;
 }
 
 function devide() {
-  const result = firstNumber / secondNumber;
-  return Math.round((result + Number.EPSILON) * 100) / 100;
+  const resultDevide = Number(firstNumber) / Number(secondNumber);
+  const resultRound = Math.round((resultDevide + Number.EPSILON) * 100) / 100;
+  result = resultRound;
 }
 
 
@@ -39,6 +41,9 @@ function buttons() {
   const button8 = document.getElementById('8');
   const button9 = document.getElementById('9');
   const buttonAdd = document.getElementById('add');
+  const buttonSubtract = document.getElementById('subtract');
+  const buttonMultiply = document.getElementById('multiply');
+  const buttonDevide = document.getElementById('devide');
   const buttonOperate = document.getElementById('operate');
 
 
@@ -54,6 +59,9 @@ function buttons() {
   button8.addEventListener('click', runButton8);
   button9.addEventListener('click', runButton9);
   buttonAdd.addEventListener('click', runButtonAdd);
+  buttonSubtract.addEventListener('click', runButtonSubtract);
+  buttonMultiply.addEventListener('click', runButtonMultiply);
+  buttonDevide.addEventListener('click', runButtonDevide);
   buttonOperate.addEventListener('click', runButtonOperate);
 
 
@@ -62,58 +70,157 @@ function buttons() {
 buttons()
 
 function runButton0() {
-  firstNumber = 0
-  updateScreen()
+  if (operator == "" && firstNumber != "0") {   //Disables numbers starting with 00
+    firstNumber = `${firstNumber}` + "0";
+    updateScreen();
+  } else if (operator != "" && secondNumber != "0") {   //Disables numbers starting with 00
+    secondNumber = `${secondNumber}` + "0";
+    updateScreen3();
+  }
 }
 
 function runButton1() {
+  if (firstNumber == "0") {   //Disables numbers like 01
+    firstNumber = "";
+  } else if (secondNumber == "0") {
+    secondNumber = "";
+  } else {}
+
   if (operator == "") {
-    firstNumber = `${firstNumber}` + "1"
+    firstNumber = `${firstNumber}` + "1";
     updateScreen();
   } else {
-    secondNumber = `${secondNumber}` + "1"
+    secondNumber = `${secondNumber}` + "1";
     updateScreen3();
   }
 }
 
 function runButton2() {
-  firstNumber = 2
-  updateScreen()
+  if (firstNumber == "0") {   //Disables numbers like 01
+    firstNumber = "";
+  } else if (secondNumber == "0") {
+    secondNumber = "";
+  } else {}
+
+  if (operator == "") {
+    firstNumber = `${firstNumber}` + "2";
+    updateScreen();
+  } else {
+    secondNumber = `${secondNumber}` + "2";
+    updateScreen3();
+  }
 }
 
 function runButton3() {
-  firstNumber = 3
-  updateScreen()
+  if (firstNumber == "0") {   //Disables numbers like 01
+    firstNumber = "";
+  } else if (secondNumber == "0") {
+    secondNumber = "";
+  } else {}
+
+  if (operator == "") {
+    firstNumber = `${firstNumber}` + "3";
+    updateScreen();
+  } else {
+    secondNumber = `${secondNumber}` + "3";
+    updateScreen3();
+  }
 }
 
 function runButton4() {
-  firstNumber = 4
-  updateScreen()
+  if (firstNumber == "0") {   //Disables numbers like 01
+    firstNumber = "";
+  } else if (secondNumber == "0") {
+    secondNumber = "";
+  } else {}
+
+  if (operator == "") {
+    firstNumber = `${firstNumber}` + "4";
+    updateScreen();
+  } else {
+    secondNumber = `${secondNumber}` + "4";
+    updateScreen3();
+  }
 }
 
 function runButton5() {
-  firstNumber = 5
-  updateScreen()
+  if (firstNumber == "0") {   //Disables numbers like 01
+    firstNumber = "";
+  } else if (secondNumber == "0") {
+    secondNumber = "";
+  } else {}
+
+  if (operator == "") {
+    firstNumber = `${firstNumber}` + "5";
+    updateScreen();
+  } else {
+    secondNumber = `${secondNumber}` + "5";
+    updateScreen3();
+  }
 }
 
 function runButton6() {
-  firstNumber = 6
-  updateScreen()
+  if (firstNumber == "0") {   //Disables numbers like 01
+    firstNumber = "";
+  } else if (secondNumber == "0") {
+    secondNumber = "";
+  } else {}
+
+  if (operator == "") {
+    firstNumber = `${firstNumber}` + "6";
+    updateScreen();
+  } else {
+    secondNumber = `${secondNumber}` + "6";
+    updateScreen3();
+  }
 }
 
 function runButton7() {
-  firstNumber = 7
-  updateScreen()
+  if (firstNumber == "0") {   //Disables numbers like 01
+    firstNumber = "";
+  } else if (secondNumber == "0") {
+    secondNumber = "";
+  } else {}
+
+  if (operator == "") {
+    firstNumber = `${firstNumber}` + "7";
+    updateScreen();
+  } else {
+    secondNumber = `${secondNumber}` + "7";
+    updateScreen3();
+  }
 }
 
 function runButton8() {
-  firstNumber = 8
-  updateScreen()
+  if (firstNumber == "0") {   //Disables numbers like 01
+    firstNumber = "";
+  } else if (secondNumber == "0") {
+    secondNumber = "";
+  } else {}
+
+  if (operator == "") {
+    firstNumber = `${firstNumber}` + "8";
+    updateScreen();
+  } else {
+    secondNumber = `${secondNumber}` + "8";
+    updateScreen3();
+  }
 }
 
 function runButton9() {
-  firstNumber = 9
-  updateScreen()
+  if (firstNumber == "0") {   //Disables numbers like 01
+    firstNumber = "";
+  } else if (secondNumber == "0") {
+    secondNumber = "";
+  } else {}
+
+  if (operator == "") {
+    firstNumber = `${firstNumber}` + "9";
+    updateScreen();
+  } else {
+    secondNumber = `${secondNumber}` + "9";
+    updateScreen3();
+  }
 }
 
 function runButtonAdd() {
@@ -121,11 +228,35 @@ function runButtonAdd() {
   updateScreen2();
 }
 
+function runButtonSubtract() {
+  operator = "-";
+  updateScreen2();
+}
+
+function runButtonMultiply() {
+  operator = "*";
+  updateScreen2();
+}
+
+function runButtonDevide() {
+  operator = "/";
+  updateScreen2();
+}
+
 function runButtonOperate() {
   if (operator == "+") {
     add();
     updateScreenResult();
-  }
+  } else if (operator =="-") {
+    subtract();
+    updateScreenResult();
+  } else if (operator =="*") {
+    multiply();
+    updateScreenResult();
+  } else if (operator =="/") {
+    devide();
+    updateScreenResult();
+  } else {}
 }
 
 
@@ -166,7 +297,7 @@ function updateScreen3() {
 function updateScreenResult() {
   const screenTop = document.getElementById('screen-top');
   const topText = document.getElementById('top-text');
-  topText.textContent = `${firstNumber}` + ` ${operator}` + ` ${secondNumber}`;
+  topText.textContent = `${firstNumber}` + ` ${operator}` + ` ${secondNumber}` + " =";
   screenTop.appendChild(topText);
 
   const screenBottom = document.getElementById('screen-bottom');
@@ -178,3 +309,11 @@ function updateScreenResult() {
   console.log(operator)
   console.log(secondNumber)
 }
+
+//known bugs:
+//long numbers - fixed
+//numbers starting with 00 or 01 etc - fixed
+
+//missing features:
+//function for %
+//multiple operations

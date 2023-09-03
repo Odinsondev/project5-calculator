@@ -25,22 +25,26 @@ body {
 
 .screen {
   width: auto;
-  height: 80px;
+  min-height: 80px;
   margin: 8px 8px 3px 8px;
   background-color: rgb(235, 198, 196);
   border: 1px solid black;
   border-radius: 5px;}
 
 #top-text {
+  min-height: 16px;
   text-align: end;
   font-size: 16px;
   margin: 13px;
+  word-break: break-all;
 }
 
 #bottom-text {
+  min-height: 20px;
   text-align: end;
   font-size: 20px;
   margin: 13px;
+  word-break: break-all;
 }
 
 .button-row1,
@@ -57,6 +61,7 @@ button {
   margin: 3px;
   border-radius: 5px;
   background-color: rgb(198, 168, 205);
+  font-size: 16px;
 }
 
 .btn-left {
