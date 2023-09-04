@@ -32,7 +32,7 @@ body {
   border-radius: 5px;}
 
 #top-text {
-  min-height: 16px;
+  min-height: 20px;
   text-align: end;
   font-size: 16px;
   margin: 13px;
@@ -40,7 +40,7 @@ body {
 }
 
 #bottom-text {
-  min-height: 20px;
+  min-height: 24px;
   text-align: end;
   font-size: 20px;
   margin: 13px;
@@ -70,6 +70,7 @@ button {
 
 .btn-right {
   margin-right: 8px;
+  font-size: 18px;
 }
 
 .btn-right-large {
