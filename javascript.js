@@ -32,6 +32,45 @@ function divide() {
   result = resultRound;
 }
 
+function percent () {   // Functions like Windows calculator
+  if (operator == "+") {   // Adds X percentage of firstNumber
+    secondNumber = secondNumber.slice(0, secondNumber.length -1);   // Remove % sign
+    secondNumber = firstNumber * (secondNumber/100);
+    secondNumber = Math.round((secondNumber + Number.EPSILON) * 1000) / 1000;   // Removes floating number issue
+
+    const resultAdd = Number(firstNumber) + Number(secondNumber);
+    const resultRound = Math.round((resultAdd + Number.EPSILON) * 1000) / 1000;
+    result = resultRound;
+
+  } else if (operator == "-") {   // Subtracts X percentage of firstNumber
+    secondNumber = secondNumber.slice(0, secondNumber.length -1);
+    secondNumber = firstNumber * (secondNumber/100);
+    secondNumber = Math.round((secondNumber + Number.EPSILON) * 1000) / 1000;
+
+    const resultSubtract = Number(firstNumber) - Number(secondNumber);
+    const resultRound = Math.round((resultSubtract + Number.EPSILON) * 1000) / 1000;
+    result = resultRound;
+
+  } else if (operator == "\xd7") {   // Result is the percentage of firstNumber
+    secondNumber = secondNumber.slice(0, secondNumber.length -1);
+    secondNumber = secondNumber/100;
+    secondNumber = Math.round((secondNumber + Number.EPSILON) * 1000) / 1000;
+
+    const resultMultiply = Number(firstNumber) * Number(secondNumber);
+    const resultRound = Math.round((resultMultiply + Number.EPSILON) * 1000) / 1000;
+    result = resultRound;
+
+  } else if (operator == "\xf7") {   // Same functionality as Windows calculator
+    secondNumber = secondNumber.slice(0, secondNumber.length -1);
+    secondNumber = secondNumber/100;
+    secondNumber = Math.round((secondNumber + Number.EPSILON) * 1000) / 1000;
+
+    const resultDivide = Number(firstNumber) / Number(secondNumber);
+    const resultRound = Math.round((resultDivide + Number.EPSILON) * 1000) / 1000;
+    result = resultRound;
+  } else {}
+}
+
 // Eventlisteners for buttons
 
 function buttons() {
@@ -50,6 +89,7 @@ function buttons() {
   const buttonSubtract = document.getElementById('subtract');
   const buttonMultiply = document.getElementById('multiply');
   const buttonDivide = document.getElementById('divide');
+  const buttonPercent = document.getElementById('percent');
   const buttonOperate = document.getElementById('operate');
   const buttonClear = document.getElementById('clear');
   const buttonDelete = document.getElementById('delete');
@@ -69,6 +109,7 @@ function buttons() {
   buttonSubtract.addEventListener('click', runButtonSubtract);
   buttonMultiply.addEventListener('click', runButtonMultiply);
   buttonDivide.addEventListener('click', runButtonDivide);
+  buttonPercent.addEventListener('click', runButtonPercent);
   buttonOperate.addEventListener('click', runButtonOperate);
   buttonClear.addEventListener('click', runButtonClear);
   buttonDelete.addEventListener('click', runButtonDelete);
@@ -238,10 +279,11 @@ function runButtonDecimal() {
     secondNumber = "0";
   } else {}
 
-  if (operator == "" && !firstNumber.includes(".")) {   //Disables numbers like 0.. or 0.1.1
+  if (operator == "" && !firstNumber == "" &&
+  !firstNumber.includes(".")) {   //Disables numbers like 0.. or 0.1.1 or .1
     firstNumber = `${firstNumber}` + ".";
     updateScreen();
-  } else if (operator != "" && !secondNumber.includes(".")) {
+  } else if (operator != "" && !secondNumber == "" && !secondNumber.includes(".")) {
     secondNumber = `${secondNumber}` + ".";
     updateScreen3();
   } else {}
@@ -287,26 +329,33 @@ function runButtonDivide() {
   }
 }
 
+function runButtonPercent() {
+  if (secondNumber != "" && !secondNumber.includes("%")) {   // Only run if other values have been input
+    secondNumber = `${secondNumber}` + "%";
+    updateScreen3();
+  } else {}
+}
+
 function runButtonOperate() {
-  if (operator == "+") {
+  if (operator == "+" && !secondNumber.includes("%")) {   // Doesn't run if % is input
     add();
     updateScreenResult();
     firstNumber = result.toString();   // Updates firstNumber to Result for future operations
     operator = "";                     // Added toString to avoid potential bugs
     secondNumber = "";
-  } else if (operator == "-") {
+  } else if (operator == "-" && !secondNumber.includes("%")) {
     subtract();
     updateScreenResult();
     firstNumber = result.toString();
     operator = "";
     secondNumber = "";
-  } else if (operator == "\xd7") {
+  } else if (operator == "\xd7" && !secondNumber.includes("%")) {
     multiply();
     updateScreenResult();
     firstNumber = result.toString();
     operator = "";
     secondNumber = "";
-  } else if (operator == "\xf7") {
+  } else if (operator == "\xf7" && !secondNumber.includes("%")) {
     if (secondNumber == 0) {
       result = "58008";   // ERROR message when dividing by 0
       updateScreenResult();
@@ -320,6 +369,12 @@ function runButtonOperate() {
       operator = "";
       secondNumber = "";
     }
+  } else if (secondNumber.includes("%")) {
+    percent();
+    updateScreenResult();
+    firstNumber = result.toString();
+    operator = "";
+    secondNumber = "";
   } else {}
 
   console.log(firstNumber)   // Show values after operating
@@ -412,12 +467,5 @@ function updateScreenClear() {
   console.log(secondNumber)
 }
 
-//missing features:
-//function for %
-//multiple operations   -   DONE
-// . button   -   DONE
-//divide by 0   -   DONE
-//clear and del buttons   -   DONE
-
-//bugs:
-// 0 + 1 removes 0   -   DONE
+//style:
+//add button shade

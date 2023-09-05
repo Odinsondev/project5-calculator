@@ -9,9 +9,11 @@ body {
 }
 
 .content1 {
-  display: flex;
+display: flex;
   justify-content: center;
-  height: 100%;
+  min-height: 90%;
+  position: relative;
+  margin-bottom: 50px;
 }
 
 .container {
@@ -29,7 +31,8 @@ body {
   margin: 8px 8px 3px 8px;
   background-color: rgb(235, 198, 196);
   border: 1px solid black;
-  border-radius: 5px;}
+  border-radius: 5px;
+}
 
 #top-text {
   min-height: 20px;
@@ -89,4 +92,34 @@ button {
 
 .dark {
   background-color: rgb(233, 187, 131);
+}
+
+footer {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(235, 198, 196);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+
+@media only screen and (max-height: 510px) {
+
+  html {
+    height: initial !important;
+    min-height: 100%;
+    position: relative;
+  }
+
+  body {
+    margin-bottom: 50px !important;
+  }
+
+  footer {
+    position: absolute !important;
+  }
 }
