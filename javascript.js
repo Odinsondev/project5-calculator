@@ -113,8 +113,35 @@ function buttons() {
   buttonOperate.addEventListener('click', runButtonOperate);
   buttonClear.addEventListener('click', runButtonClear);
   buttonDelete.addEventListener('click', runButtonDelete);
+
+  button0.addEventListener('mousedown', playSound);
+  button1.addEventListener('mousedown', playSound);
+  button2.addEventListener('mousedown', playSound);
+  button3.addEventListener('mousedown', playSound);
+  button4.addEventListener('mousedown', playSound);
+  button5.addEventListener('mousedown', playSound);
+  button6.addEventListener('mousedown', playSound);
+  button7.addEventListener('mousedown', playSound);
+  button8.addEventListener('mousedown', playSound);
+  button9.addEventListener('mousedown', playSound);
+  buttonDecimal.addEventListener('mousedown', playSound);
+  buttonAdd.addEventListener('mousedown', playSound);
+  buttonSubtract.addEventListener('mousedown', playSound);
+  buttonMultiply.addEventListener('mousedown', playSound);
+  buttonDivide.addEventListener('mousedown', playSound);
+  buttonPercent.addEventListener('mousedown', playSound);
+  buttonOperate.addEventListener('mousedown', playSound);
+  buttonClear.addEventListener('mousedown', playSound);
+  buttonDelete.addEventListener('mousedown', playSound);
+
+
 }
 buttons();
+
+function playSound() {
+  const sound = new Audio('./sounds/click.mp3');
+  sound.play();
+}
 
 // Individual button functions
 
@@ -290,43 +317,43 @@ function runButtonDecimal() {
 }
 
 function runButtonAdd() {
-  if (operator == "") {   // Run normal code if making first calculation
+  if (operator == "" && firstNumber != "") {   // Run normal code if making first calculation
     operator = "+";
     updateScreen2();
-  } else {   // Run if making consecutive operations without using "="
+  } else if (firstNumber != "" && secondNumber != "") {   // Run if making consecutive operations without using "="
     runButtonOperate();
     operator = "+";   // Added operator so next input numbers would add to secondNumber
-  }                   // Not logging this operator to console
+  } else {}             // Not logging this operator to console
 }
 
 function runButtonSubtract() {
-  if (operator == "") {
+  if (operator == "" && firstNumber != "") {
     operator = "-";
     updateScreen2();
-  } else {
+  } else if (firstNumber != "" && secondNumber != "") {
     runButtonOperate();
     operator = "-";
-  }
+  } else {}
 }
 
 function runButtonMultiply() {
-  if (operator == "") {
+  if (operator == "" && firstNumber != "") {
     operator = "\xd7";
     updateScreen2();
-  } else {
+  } else if (firstNumber != "" && secondNumber != "") {
     runButtonOperate();
     operator = "\xd7";
-  }
+  } else {}
 }
 
 function runButtonDivide() {
-  if (operator == "") {
+  if (operator == "" && firstNumber != "") {
     operator = "\xf7";
     updateScreen2();
-  } else {
+  } else if (firstNumber != "" && secondNumber != "") {
     runButtonOperate();
     operator = "\xf7";
-  }
+  } else {}
 }
 
 function runButtonPercent() {
@@ -467,5 +494,8 @@ function updateScreenClear() {
   console.log(secondNumber)
 }
 
-//style:
-//add button shade
+//feat:
+//keyboard support
+
+//bug:
+//can't change operator during calculation
