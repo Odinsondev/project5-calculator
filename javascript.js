@@ -133,10 +133,76 @@ function buttons() {
   buttonOperate.addEventListener('mousedown', playSound);
   buttonClear.addEventListener('mousedown', playSound);
   buttonDelete.addEventListener('mousedown', playSound);
-
-
 }
 buttons();
+
+// EventListener for keys
+
+function keys() {
+  document.addEventListener('keydown', function(event) {
+
+    console.log(event.code);
+
+    if (event.code == 'Digit0' || event.code == 'Numpad0') {
+      runButton0();
+      playSound();
+    } else if (event.code == 'Digit1' || event.code == 'Numpad1') {
+      runButton1();
+      playSound();
+    } else if (event.code == 'Digit2' || event.code == 'Numpad2') {
+      runButton2();
+      playSound();
+    } else if (event.code == 'Digit3' || event.code == 'Numpad3') {
+      runButton3();
+      playSound();
+    } else if (event.code == 'Digit4' || event.code == 'Numpad4') {
+      runButton4();
+      playSound();
+    } else if (event.code == 'Digit5' || event.code == 'Numpad5') {
+      runButton5();
+      playSound();
+    } else if (event.code == 'Digit6' || event.code == 'Numpad6') {
+      runButton6();
+      playSound();
+    } else if (event.code == 'Digit7' || event.code == 'Numpad7') {
+      runButton7();
+      playSound();
+    } else if (event.code == 'Digit8' || event.code == 'Numpad8') {
+      runButton8();
+      playSound();
+    } else if (event.code == 'Digit9' || event.code == 'Numpad9') {
+      runButton9();
+      playSound();
+    } else if (event.code == 'NumpadDecimal') {
+      runButtonDecimal();
+      playSound();
+    } else if (event.code == 'NumpadAdd') {
+      runButtonAdd();
+      playSound();
+    } else if (event.code == 'NumpadSubtract') {
+      runButtonSubtract();
+      playSound();
+    } else if (event.code == 'NumpadMultiply') {
+      runButtonMultiply();
+      playSound();
+    } else if (event.code == 'NumpadDivide') {
+      runButtonDivide();
+      playSound();
+    } else if (event.code == 'Enter' || event.code == 'NumpadEnter') {
+      runButtonOperate();
+      playSound();
+    } else if (event.code == 'Delete') {
+      runButtonClear();
+      playSound();
+    } else if (event.code == 'Backspace') {
+      runButtonDelete();
+      playSound();
+    } else {}
+  });
+}
+keys();
+
+// Click sound
 
 function playSound() {
   const sound = new Audio('./sounds/click.mp3');
@@ -404,9 +470,9 @@ function runButtonOperate() {
     secondNumber = "";
   } else {}
 
-  console.log(firstNumber)   // Show values after operating
-  console.log(operator)
-  console.log(secondNumber)
+  console.log(firstNumber);   // Show values after operating
+  console.log(operator);
+  console.log(secondNumber);
 }
 
 function runButtonClear() {
@@ -435,9 +501,9 @@ function updateScreen() {
   bottomText.textContent = firstNumber;
   screenBottom.appendChild(bottomText);
 
-  console.log(firstNumber)
-  console.log(operator)
-  console.log(secondNumber)
+  console.log(firstNumber);
+  console.log(operator);
+  console.log(secondNumber);
 }
 
 function updateScreen2() {
@@ -446,9 +512,9 @@ function updateScreen2() {
   topText.textContent = `${firstNumber}` + ` ${operator}`;
   screenTop.appendChild(topText);
 
-  console.log(firstNumber)
-  console.log(operator)
-  console.log(secondNumber)
+  console.log(firstNumber);
+  console.log(operator);
+  console.log(secondNumber);
 }
 
 function updateScreen3() {
@@ -457,9 +523,9 @@ function updateScreen3() {
   bottomText.textContent = secondNumber;
   screenBottom.appendChild(bottomText);
 
-  console.log(firstNumber)
-  console.log(operator)
-  console.log(secondNumber)
+  console.log(firstNumber);
+  console.log(operator);
+  console.log(secondNumber);
 }
 
 function updateScreenResult() {
@@ -473,9 +539,9 @@ function updateScreenResult() {
   bottomText.textContent = result;
   screenBottom.appendChild(bottomText);
 
-  console.log(firstNumber)
-  console.log(operator)
-  console.log(secondNumber)
+  console.log(firstNumber);
+  console.log(operator);
+  console.log(secondNumber);
 }
 
 function updateScreenClear() {
@@ -489,13 +555,10 @@ function updateScreenClear() {
   bottomText.textContent = "";
   screenBottom.appendChild(bottomText);
 
-  console.log(firstNumber)
-  console.log(operator)
-  console.log(secondNumber)
+  console.log(firstNumber);
+  console.log(operator);
+  console.log(secondNumber);
 }
 
-//feat:
-//keyboard support
-
 //bug:
-//can't change operator during calculation
+//can't change operator after one has been input
